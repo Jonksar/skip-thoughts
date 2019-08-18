@@ -102,7 +102,7 @@ class Encoder(object):
         return encode(self._model, X, use_norm, verbose, batch_size, use_eos)
 
 
-def encode(model, X, use_norm=True, verbose=True, batch_size=128, use_eos=False):
+def encode(model, X, use_norm=True, verbose=False, batch_size=128, use_eos=False):
     """
     Encode sentences in the list X. Each entry will return a vector
     """
@@ -437,3 +437,21 @@ def gru_layer(tparams, state_below, options, prefix='gru', mask=None, **kwargs):
                                 strict=True)
     rval = [rval]
     return rval
+
+
+def download_pretrained_skipthoughs(force=False):
+    import wget
+
+    def download_only_new_files(path, **kwargs):
+        filename = path.split('/')[-1]
+        if not (os.path.isfile(os.path.join(path_to_models, filename)) or os.path.isfile(
+                os.path.join(path_to_tables, filename))) or force:
+            wget.download(path, **kwargs)
+
+    download_only_new_files("http://www.cs.toronto.edu/~rkiros/models/utable.npy", out=os.path.dirname(__file__))
+    download_only_new_files("http://www.cs.toronto.edu/~rkiros/models/dictionary.txt", out=os.path.dirname(__file__))
+    download_only_new_files("http:/www.cs.toronto.edu/~rkiros/models/btable.npy", out=os.path.dirname(__file__))
+    download_only_new_files("http://www.cs.toronto.edu/~rkiros/models/uni_skip.npz", out=os.path.dirname(__file__))
+    download_only_new_files("http://www.cs.toronto.edu~rkiros/models/uni_skip.npz.pkl", out=os.path.dirname(__file__))
+    download_only_new_files("http://www.cs.toronto.edu/~rkiros/models/bi_skip.npz", out=os.path.dirname(__file__))
+    download_only_new_files("http://www.cs.toronto.edu/~rkiros/models/bi_skip.npz.pkl", out=os.path.dirname(__file__))
