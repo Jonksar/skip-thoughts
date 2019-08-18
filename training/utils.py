@@ -1,5 +1,5 @@
 """
-Helper functions for skip-thoughts
+Helper functions for skipthoughts
 """
 import theano
 import theano.tensor as tensor

@@ -1,5 +1,5 @@
 """
-Layers for skip-thoughts
+Layers for skipthoughts
 
 To add a new layer:
 1) Add layer names to the 'layers' dictionary below

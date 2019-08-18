@@ -1,5 +1,5 @@
 """
-Optimizers for skip-thoughts
+Optimizers for skipthoughts
 """
 import theano
 import theano.tensor as tensor
