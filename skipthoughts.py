@@ -455,3 +455,4 @@ def download_pretrained_skipthoughs(force=False):
     download_only_new_files("http://www.cs.toronto.edu~rkiros/models/uni_skip.npz.pkl", out=os.path.dirname(__file__))
     download_only_new_files("http://www.cs.toronto.edu/~rkiros/models/bi_skip.npz", out=os.path.dirname(__file__))
     download_only_new_files("http://www.cs.toronto.edu/~rkiros/models/bi_skip.npz.pkl", out=os.path.dirname(__file__))
+
